@@ -7,7 +7,7 @@ vcs_status() {
 }
 
 
-PROMPT='[%n@%m :%{$fg_bold[green]%}%p %{$fg[cyan]%}%~] 
+PROMPT='[%n@%m :%{$fg_bold[green]%}%p %{$fg[cyan]%}%~ %{$reset_color%}] 
 %{$fg_bold[red]%}➜ %{$reset_color%}'
 RPROMPT='%{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%}$(svn_prompt_info)%{$reset_color%}'
 
