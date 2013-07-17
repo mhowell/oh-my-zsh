@@ -1,15 +1,10 @@
-vcs_status() {
-    if [[ ( $(whence in_svn) != "" ) && ( $(in_svn) == 1 ) ]]; then
-        svn_prompt_info
-    else
-        git_prompt_info
-    fi
-}
-
 
 PROMPT='[%n@%m :%{$fg_bold[green]%}%p %{$fg[cyan]%}%~ %{$reset_color%}] 
 %{$fg_bold[red]%}➜ %{$reset_color%}'
-RPROMPT='%{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%}$(svn_prompt_info)%{$reset_color%}'
+if [ ! `uname -o` = "Cygwin" ]
+then
+	RPROMPT='%{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%}$(svn_prompt_info)%{$reset_color%}'
+fi
 
 ZSH_THEME_GIT_PROMPT_PREFIX="git:(%{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
