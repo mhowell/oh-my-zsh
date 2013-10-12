@@ -1,7 +1,7 @@
 
 PROMPT='[%{$fg[magenta]%}%n%{$reset_color%}@%{$fg[yellow]%}%m%{$reset_color%} :%{$fg_bold[green]%}%p %{$fg[cyan]%}%~ %{$reset_color%}] 
 %{$fg_bold[red]%}➜ %{$reset_color%}'
-if [ ! `uname -s` = "Cygwin" ]
+if [ ! `uname -s` = "CYGWIN_NT-6.1-WOW64" ]
 then
 	RPROMPT='%{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%}$(svn_prompt_info)%{$reset_color%}'
 fi
