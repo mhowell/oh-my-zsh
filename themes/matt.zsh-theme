@@ -1,10 +1,14 @@
+function fast_git() {
+            ref=$(git symbolic-ref HEAD) 2> /dev/null
+            if [ "${ref}" != "" ]; then
+                        echo git:${ref#refs/heads/}
+            fi
+}
 
 PROMPT='[%{$fg[magenta]%}%n%{$reset_color%}@%{$fg[yellow]%}%m%{$reset_color%} :%{$fg_bold[green]%}%p %{$fg[cyan]%}%~ %{$reset_color%}] 
 %{$fg_bold[red]%}➜ %{$reset_color%}'
-if [ ! `uname -s` = "CYGWIN_NT-6.1-WOW64" ]
-then
-	RPROMPT='%{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%}$(svn_prompt_info)%{$reset_color%}'
-fi
+
+RPROMPT='%{$fg_bold[blue]%} $(fast_git) %{${fg_bold[green]}%}%T%{${reset_color}%}'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="git:(%{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
