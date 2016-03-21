@@ -42,6 +42,9 @@ if _ruby-build_installed; then
 fi
 
 _source_from_omz_settings() {
+    local _chruby_path
+    local _chruby_auto
+    
     zstyle -s :omz:plugins:chruby path _chruby_path
     zstyle -s :omz:plugins:chruby auto _chruby_auto
 
